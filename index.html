@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pitching Stats Helper</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Pitching Stats Helper</h1>
+    <p>Understand what ERA, WHIP, FIP and K/9 measure, not just memorize them.</p>
+  </header>
+
+  <main>
+    <section id="glossary">
+      <h2>Glossary</h2>
+      <div class="controls">
+        <label for="search">Search</label>
+        <input id="search" type="text" placeholder="Try ERA or strikeouts">
+
+        <label for="category">Category</label>
+        <select id="category">
+          <option value="all">All</option>
+          <option value="Results-based">Results-based</option>
+          <option value="Skill-based">Skill-based</option>
+        </select>
+      </div>
+      <p id="count" aria-live="polite"></p>
+      <div id="stat-list"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Study tool only, not official scoring. Formulas follow common definitions.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
