@@ -27,3 +27,9 @@ Purpose: Planning, code generation, debugging, test ideas
 - **Prompt (verbatim):** Asked Claude to help verify the five formulas against published sources
 - **Key part of AI response:** Pointed to MLB Glossary, Baseball-Reference, FanGraphs Library and Tom Tango's FIP page, and noted that FIP has variants and a yearly constant
 - **What I did with it (accepted / changed / rejected):** Opened the source pages myself and compared each formula to app.js. All five matched. Added a sources table and the FIP limitations to the README.
+
+## Entry 5
+- **Date:** 2026-11-04
+- **Prompt (verbatim):** Asked Claude to write the calculator (IP, ER, H, BB, K, HR, HBP and an editable FIP constant) with formula steps
+- **Key part of AI response:** Calculator form, input checks, innings conversion (6.1 = 6 1/3), and results showing the formula with the numbers filled in
+- **What I did with it (accepted / changed / rejected):** (fill in after you run it and review the code: what you changed or checked)
