@@ -66,6 +66,19 @@
       <p id="calc-error" class="error" role="alert"></p>
       <div id="calc-results"></div>
     </section>
+
+    <section id="practice">
+      <h2>Practice mode</h2>
+      <p class="hint">Round your answer to 2 decimal places. Answers within 0.01 count as correct. Remember that 6.1 IP means 6⅓ innings.</p>
+      <p id="question-text" class="question"></p>
+      <form id="practice-form" novalidate>
+        <label for="answer">Your answer</label>
+        <input id="answer" type="text" inputmode="decimal">
+        <button type="submit">Check answer</button>
+        <button type="button" id="new-question">New question</button>
+      </form>
+      <div id="practice-feedback" aria-live="polite"></div>
+    </section>
   </main>
 
   <footer>
