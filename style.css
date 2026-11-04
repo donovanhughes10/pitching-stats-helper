@@ -1,50 +1,25 @@
-body {
-  font-family: Arial, sans-serif;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 16px;
-  color: #222;
-  background: #f6f7f9;
-}
+section { margin-bottom: 32px; }
 
-header h1 { margin-bottom: 4px; }
-
-.controls {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  align-items: center;
-  margin-bottom: 8px;
-}
-
-input, select {
-  padding: 8px;
-  font-size: 1rem;
-}
-
-.stat-card {
-  background: #fff;
-  border: 1px solid #d5d9e0;
-  border-radius: 8px;
-  padding: 12px 16px;
+.calc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
   margin-bottom: 12px;
 }
 
-.stat-card h3 { margin: 0 0 4px; }
-
-.tag {
-  display: inline-block;
-  font-size: 0.8rem;
-  background: #e3ecff;
-  border-radius: 4px;
-  padding: 2px 6px;
+.calc-grid label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.9rem;
 }
 
-.formula {
-  font-family: Consolas, monospace;
-  background: #f0f2f5;
-  padding: 6px 8px;
-  border-radius: 4px;
-}
+.hint { font-size: 0.85rem; color: #555; }
 
-footer { margin-top: 24px; font-size: 0.85rem; color: #555; }
+.error { color: #b00020; font-weight: bold; }
+
+button {
+  padding: 8px 16px;
+  font-size: 1rem;
+  cursor: pointer;
+}
