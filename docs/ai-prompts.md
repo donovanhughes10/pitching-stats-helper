@@ -32,4 +32,10 @@ Purpose: Planning, code generation, debugging, test ideas
 - **Date:** 2026-11-04
 - **Prompt (verbatim):** Asked Claude to write the calculator (IP, ER, H, BB, K, HR, HBP and an editable FIP constant) with formula steps
 - **Key part of AI response:** Calculator form, input checks, innings conversion (6.1 = 6 1/3), and results showing the formula with the numbers filled in
-- **What I did with it (accepted / changed / rejected):** (fill in after you run it and review the code: what you changed or checked)
+- **What I did with it (accepted / changed / rejected):** Pasted the three files into GitHub. The first copy of index.html was cut off partway, so app.js never loaded and nothing worked. I found it by comparing the page against the code, replaced the whole file, and re-tested. After the fix, all five results appear when every field is filled in. The calculator rejects blank fields by design, so I plan to test that as an edge case.
+
+## Entry 6
+- **Date:** 2026-11-04
+- **Prompt (verbatim):** Asked Claude to write practice mode with randomized stat lines, answer checking and feedback that shows the correct work
+- **Key part of AI response:** Random question generator for ERA, WHIP, K/9, BB/9 and FIP, a 0.01 rounding tolerance, and feedback showing the formula steps
+- **What I did with it (accepted / changed / rejected):** (fill in after you run it: what worked, what you changed)
