@@ -29,6 +29,43 @@
       <p id="count" aria-live="polite"></p>
       <div id="stat-list"></div>
     </section>
+
+    <section id="calculator">
+      <h2>Calculator</h2>
+      <p class="hint">Enter a pitching line. Innings use baseball notation: 6.1 means 6⅓ innings and 6.2 means 6⅔ innings.</p>
+      <form id="calc-form" novalidate>
+        <div class="calc-grid">
+          <label>Innings pitched (IP)
+            <input id="ip" type="text" inputmode="decimal" placeholder="6.1">
+          </label>
+          <label>Earned runs (ER)
+            <input id="er" type="text" inputmode="numeric" placeholder="2">
+          </label>
+          <label>Hits (H)
+            <input id="h" type="text" inputmode="numeric" placeholder="5">
+          </label>
+          <label>Walks (BB)
+            <input id="bb" type="text" inputmode="numeric" placeholder="2">
+          </label>
+          <label>Strikeouts (K)
+            <input id="k" type="text" inputmode="numeric" placeholder="7">
+          </label>
+          <label>Home runs (HR)
+            <input id="hr" type="text" inputmode="numeric" placeholder="1">
+          </label>
+          <label>Hit batters (HBP)
+            <input id="hbp" type="text" inputmode="numeric" placeholder="0">
+          </label>
+          <label>FIP constant
+            <input id="fip-constant" type="text" inputmode="decimal" value="3.10">
+          </label>
+        </div>
+        <p class="hint">The FIP constant changes every season. 3.10 is an approximate default, not an official value for any one year. Look up the season you want on FanGraphs (Guts page).</p>
+        <button type="submit">Calculate</button>
+      </form>
+      <p id="calc-error" class="error" role="alert"></p>
+      <div id="calc-results"></div>
+    </section>
   </main>
 
   <footer>
