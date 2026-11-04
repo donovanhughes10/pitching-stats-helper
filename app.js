@@ -199,3 +199,127 @@ function calculate(event) {
 }
 
 calcForm.addEventListener("submit", calculate);
+
+// ---------- Practice mode ----------
+const PRACTICE_CONSTANT = 3.10;
+const TOLERANCE = 0.01;
+
+const practiceForm = document.getElementById("practice-form");
+const questionText = document.getElementById("question-text");
+const answerBox = document.getElementById("answer");
+const newQuestionButton = document.getElementById("new-question");
+const practiceFeedback = document.getElementById("practice-feedback");
+
+let currentQuestion = null;
+
+function randInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function buildQuestion() {
+  // Innings in baseball notation: whole innings plus 0, 1 or 2 outs.
+  const wholeInnings = randInt(1, 9);
+  const outs = randInt(0, 2);
+  const ipLabel = outs === 0 ? String(wholeInnings) : wholeInnings + "." + outs;
+  const innings = wholeInnings + outs / 3;
+  const ipText = innings.toFixed(3);
+
+  const er = randInt(0, 6);
+  const h = randInt(0, 10);
+  const bb = randInt(0, 6);
+  const k = randInt(0, 12);
+  const hr = randInt(0, 3);
+  const hbp = randInt(0, 2);
+
+  const types = ["ERA", "WHIP", "K/9", "BB/9", "FIP"];
+  const type = types[randInt(0, types.length - 1)];
+
+  let answer;
+  let steps;
+  switch (type) {
+    case "ERA":
+      answer = (9 * er) / innings;
+      steps = "9 × " + er + " ÷ " + ipText;
+      break;
+    case "WHIP":
+      answer = (bb + h) / innings;
+      steps = "(" + bb + " + " + h + ") ÷ " + ipText;
+      break;
+    case "K/9":
+      answer = (9 * k) / innings;
+      steps = "9 × " + k + " ÷ " + ipText;
+      break;
+    case "BB/9":
+      answer = (9 * bb) / innings;
+      steps = "9 × " + bb + " ÷ " + ipText;
+      break;
+    default:
+      answer = (13 * hr + 3 * (bb + hbp) - 2 * k) / innings + PRACTICE_CONSTANT;
+      steps = "(13×" + hr + " + 3×(" + bb + " + " + hbp + ") − 2×" + k + ") ÷ " + ipText + " + " + PRACTICE_CONSTANT;
+  }
+
+  let text = "Stat line: " + ipLabel + " IP, " + er + " ER, " + h + " H, " + bb + " BB, " +
+    k + " K, " + hr + " HR, " + hbp + " HBP. What is this pitcher's " + type + "?";
+  if (type === "FIP") {
+    text += " Use a FIP constant of " + PRACTICE_CONSTANT.toFixed(2) + ".";
+  }
+
+  return {
+    type: type,
+    text: text,
+    answer: answer,
+    steps: steps,
+    inningsNote: ipLabel + " IP = " + ipText + " innings"
+  };
+}
+
+function newQuestion() {
+  currentQuestion = buildQuestion();
+  questionText.textContent = currentQuestion.text;
+  answerBox.value = "";
+  practiceFeedback.replaceChildren();
+  answerBox.focus();
+}
+
+function checkAnswer(event) {
+  event.preventDefault();
+  practiceFeedback.replaceChildren();
+
+  const raw = answerBox.value.trim();
+  if (raw === "" || !/^-?\d+(\.\d+)?$/.test(raw)) {
+    const warning = document.createElement("p");
+    warning.className = "error";
+    warning.textContent = "Enter your answer as a number, for example 3.45.";
+    practiceFeedback.append(warning);
+    return;
+  }
+
+  const guess = Number(raw);
+  const isCorrect = Math.abs(guess - currentQuestion.answer) <= TOLERANCE;
+
+  const card = document.createElement("div");
+  card.className = "stat-card";
+
+  const verdict = document.createElement("h3");
+  verdict.className = isCorrect ? "correct" : "incorrect";
+  verdict.textContent = isCorrect ? "Correct!" : "Not quite.";
+
+  const correct = document.createElement("p");
+  correct.textContent = "Correct answer: " + currentQuestion.answer.toFixed(2);
+
+  const work = document.createElement("p");
+  work.className = "formula";
+  work.textContent = currentQuestion.type + ": " + currentQuestion.steps +
+    " = " + currentQuestion.answer.toFixed(2);
+
+  const note = document.createElement("p");
+  note.className = "hint";
+  note.textContent = "Innings conversion: " + currentQuestion.inningsNote;
+
+  card.append(verdict, correct, work, note);
+  practiceFeedback.append(card);
+}
+
+practiceForm.addEventListener("submit", checkAnswer);
+newQuestionButton.addEventListener("click", newQuestion);
+newQuestion();
