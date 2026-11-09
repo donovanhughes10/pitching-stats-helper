@@ -13,7 +13,7 @@ Browser: Chrome, opened locally from index.html
 | 4 | Calculator: 0 IP, all other fields 0 | "Undefined", no crash | "Undefined" shown, no crash | Pass | test-4.png | Edge: divide by zero |
 | 5 | Calculator: 9 IP, 3 ER, H/BB/K/HBP 0, HR left blank | Error: Enter a value for HR (use 0 if none) | Error shown | Pass | test-5.png | Validation: blank field |
 | 6 | Calculator: 9 IP, 3 ER, 1 H, 2 BB, 4 K, 0 HR, 0 HBP, FIP constant 3.10 | ERA 3.00, WHIP 0.33, K/9 4.00, BB/9 2.00, FIP 2.88 | All five matched | Pass | test-6.png | Hand-calculated FIP: (0 + 6 − 8) ÷ 9 + 3.10 = 2.88. First run had the FIP constant at 0 by mistake; re-ran with 3.10 and got 2.88 (see screenshot) |
-| 7a | Practice: wrong answer, then the exact correct answer | "Not quite." then "Correct!" | As expected | Pass | test-7a.png | Feedback shows the correct answer and the work |
+| 7a | Practice: wrong answer, then the exact correct answer | "Not quite." then "Correct!" | As expected | Pass | test-7a.png (wrong answer), test-7a(2).png (correct answer) | Two-step test. Feedback shows the correct answer and the work |
 | 7b | Practice: correct answer plus 0.05 | "Not quite." | "Not quite." | Pass | test-7b.png | Edge: outside the 0.01 tolerance |
 | 8 | Practice: type "abc" | Red message asking for a number | Message shown | Pass | test-8.png | Validation: non-numeric input |
 
