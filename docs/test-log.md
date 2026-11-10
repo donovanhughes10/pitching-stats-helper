@@ -4,7 +4,7 @@
 
 Tester: Donovan Hughes
 
-Version tested: main branch (tests 1 to 8), feature-mistake-feedback branch (tests 9 to 11)
+Version tested: main branch (tests 1 to 8), feature-mistake-feedback branch (tests 9 to 12)
 
 Date: 2026-11-09
 
@@ -40,11 +40,13 @@ Browser: Chrome, opened locally from index.html
 
 | 11 | Regression: re-ran the calculator checks (9 IP, 6.1 IP, 6.3 IP, 0 IP, blank HR), the practice correct-answer and "abc" checks, and the glossary search on the feature branch | Same results as before the change | Same results | Pass | none | Spot-check only, no screenshots. Correct practice answers still show "Correct!" with no explanation |
 
+| 12 | Practice (FIP constant): stat line 6 IP, 6 ER, 1 H, 2 BB, 11 K, 1 HR, 0 HBP, FIP, constant 3.10. Answer -0.50 (correct 2.60 minus 3.10) | "Not quite." plus a Likely mistake box about the FIP constant, correct answer 2.60 | Orange box "It looks like you left out the FIP constant. Add 3.10 at the end." and correct answer 2.60 | Pass | test-12.png | Third mistake type from issue #1. Uses the reworded message |
+
 
 
 \## Observations
 
-\- For the first several tests the FIP constant field was left at 0 instead of the 3.10 default. ERA, WHIP, K/9 and BB/9 do not use the constant, so those results were unaffected. Test 6 is the only test that checks FIP, so I re-ran it with the constant set to 3.10 and it matched the hand calculation (2.88).
+\- For the first several tests the FIP constant field was left at 0 instead of the 3.10 default. ERA, WHIP, K/9 and BB/9 do not use the constant, so those results were unaffected. Test 6 is the only calculator test that checks FIP, so I re-ran it with the constant set to 3.10 and it matched the hand calculation (2.88).
 
 \- The calculator rejects blank fields by design. Every field must be filled in (use 0 if none), including HR and HBP.
 
@@ -66,5 +68,5 @@ A second limitation of the new feature: it only recognizes three specific mistak
 
 \## Summary
 
-11 tests run (1 to 6, 7a, 7b, 8, 9, 10, 11). 11 passed, 0 failed. No bugs were found in the original version, so the tracked improvement was a feature improvement (see the linked issue and pull request) rather than a bug fix.
+12 tests run (1 to 6, 7a, 7b, 8, 9, 10, 11, 12). 12 passed, 0 failed. No bugs were found in the original version, so the tracked improvement was a feature improvement (Issue #1, Pull request #2) rather than a bug fix.
 

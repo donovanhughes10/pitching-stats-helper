@@ -11,9 +11,13 @@
 
 ## Features (3)
 
-1. **Glossary filter** (done): search and filter stats by category; each entry shows the formula and what it tells you.
-2. **Calculator** (in progress): enter your own numbers and see the result with the formula steps.
-3. **Practice mode** (in progress): randomized stat lines with feedback that explains the correct work.
+1. **Glossary filter:** search and filter stats by category; each entry shows the formula and what it tells you.
+2. **Calculator:** enter a pitching line and see ERA, WHIP, K/9, BB/9 and FIP with the formula steps and an editable FIP constant. Innings use baseball notation (6.1 means 6⅓).
+3. **Practice mode:** randomized stat lines with feedback that shows the correct answer and the work. When a wrong answer matches a common mistake (innings used as a plain decimal, forgetting the ×9, leaving out the FIP constant), it also explains the likely mistake.
+
+## Tracked improvement
+
+The "likely mistake" explanation in practice mode was added through Issue #1 and Pull request #2 (branch `feature-mistake-feedback`). Before and after screenshots are in `test-screenshots` (`before-fix.png`, `after-fix.png`).
 
 ## How to run
 
@@ -23,14 +27,17 @@
 
 ## How to test
 
-_(to be added: see docs/test-log.md)_
+Tests were run by hand in Chrome. See `docs/test-log.md` for the full log with inputs, expected results, actual results and screenshots. Screenshots are in the `test-screenshots` folder. Twelve tests were run, including edge cases (6.1 IP, 6.3 IP, 0 IP), validation cases (a blank field, non-numeric input) and the new mistake feedback (tests 9, 10 and 12).
 
 ## Known limitations
 
-- FIP uses a league constant that changes every season, so the number here is an estimate unless you enter that year's constant.
+- FIP uses a league constant that changes every season. The default of 3.10 is approximate, so FIP is only comparable with published figures if you enter the constant for that season.
 - FIP has variants (for example, some versions treat intentional walks differently). This app uses the common FanGraphs form with hit batters included.
+- The calculator requires every field to be filled in (use 0 if none).
+- Practice mode only recognizes three specific mistakes. Combined mistakes or other errors get the normal feedback with no explanation.
 - Formulas follow common published definitions. This is a study tool, not official scoring.
 - No live or real player data is used.
+- Tests were manual, not automated.
 
 ## Sources (formula verification)
 
