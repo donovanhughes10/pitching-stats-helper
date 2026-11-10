@@ -267,20 +267,20 @@ function buildQuestion() {
     const decimalIp = Number(ipLabel);
     mistakes.push({
       value: ((answer - constantPart) * innings) / decimalIp + constantPart,
-      message: "You may have used " + ipLabel + " as a plain decimal. In baseball notation, ." + outs +
+      message: "It looks like you used " + ipLabel + " as a plain decimal. In baseball notation, ." + outs +
         " means " + outs + "/3 of an inning, so " + ipLabel + " IP is " + ipText + " innings."
     });
   }
   if (type === "ERA" || type === "K/9" || type === "BB/9") {
     mistakes.push({
       value: answer / 9,
-      message: "You may have forgotten to multiply by 9. " + type + " scales the rate to nine innings."
+      message: "It looks like you forgot to multiply by 9. " + type + " scales the rate to nine innings."
     });
   }
   if (type === "FIP") {
     mistakes.push({
       value: answer - PRACTICE_CONSTANT,
-      message: "You may have left out the FIP constant. Add " + PRACTICE_CONSTANT.toFixed(2) + " at the end."
+      message: "It looks like you left out the FIP constant. Add " + PRACTICE_CONSTANT.toFixed(2) + " at the end."
     });
   }
 
