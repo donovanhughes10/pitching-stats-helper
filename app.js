@@ -258,6 +258,32 @@ function buildQuestion() {
       steps = "(13×" + hr + " + 3×(" + bb + " + " + hbp + ") − 2×" + k + ") ÷ " + ipText + " + " + PRACTICE_CONSTANT;
   }
 
+  // Common wrong answers. Each one is worked backward from the correct answer,
+  // so no formula is repeated here.
+  const constantPart = type === "FIP" ? PRACTICE_CONSTANT : 0;
+  const mistakes = [];
+
+  if (outs !== 0) {
+    const decimalIp = Number(ipLabel);
+    mistakes.push({
+      value: ((answer - constantPart) * innings) / decimalIp + constantPart,
+      message: "It looks like you used " + ipLabel + " as a plain decimal. In baseball notation, ." + outs +
+        " means " + outs + "/3 of an inning, so " + ipLabel + " IP is " + ipText + " innings."
+    });
+  }
+  if (type === "ERA" || type === "K/9" || type === "BB/9") {
+    mistakes.push({
+      value: answer / 9,
+      message: "It looks like you forgot to multiply by 9. " + type + " scales the rate to nine innings."
+    });
+  }
+  if (type === "FIP") {
+    mistakes.push({
+      value: answer - PRACTICE_CONSTANT,
+      message: "It looks like you left out the FIP constant. Add " + PRACTICE_CONSTANT.toFixed(2) + " at the end."
+    });
+  }
+
   let text = "Stat line: " + ipLabel + " IP, " + er + " ER, " + h + " H, " + bb + " BB, " +
     k + " K, " + hr + " HR, " + hbp + " HBP. What is this pitcher's " + type + "?";
   if (type === "FIP") {
@@ -269,6 +295,7 @@ function buildQuestion() {
     text: text,
     answer: answer,
     steps: steps,
+    mistakes: mistakes,
     inningsNote: ipLabel + " IP = " + ipText + " innings"
   };
 }
@@ -303,6 +330,20 @@ function checkAnswer(event) {
   const verdict = document.createElement("h3");
   verdict.className = isCorrect ? "correct" : "incorrect";
   verdict.textContent = isCorrect ? "Correct!" : "Not quite.";
+  card.append(verdict);
+
+  // If the wrong answer matches a known mistake, explain it.
+  if (!isCorrect) {
+    const match = currentQuestion.mistakes.find(function (mistake) {
+      return Math.abs(guess - mistake.value) <= TOLERANCE;
+    });
+    if (match) {
+      const explain = document.createElement("p");
+      explain.className = "mistake";
+      explain.textContent = "Likely mistake: " + match.message;
+      card.append(explain);
+    }
+  }
 
   const correct = document.createElement("p");
   correct.textContent = "Correct answer: " + currentQuestion.answer.toFixed(2);
@@ -316,7 +357,7 @@ function checkAnswer(event) {
   note.className = "hint";
   note.textContent = "Innings conversion: " + currentQuestion.inningsNote;
 
-  card.append(verdict, correct, work, note);
+  card.append(correct, work, note);
   practiceFeedback.append(card);
 }
 
