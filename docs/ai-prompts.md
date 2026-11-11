@@ -126,5 +126,35 @@ Purpose: Planning, code generation, debugging, test ideas
 
 \- \*\*Key part of AI response:\*\* Move the local copies of files out of the repo before pulling, check which branch an edit lands on, restore style.css from the command line, and confirm the stylesheet was applying (it was; the browser had cached an old copy)
 
-\- \*\*What I did with it (accepted / changed / rejected):\*\* Followed the fixes and checked results myself with git branch, git status, dir and the browser. One of Claude's suggestions (merging main into my branch) made the style.css problem worse before I restored the file, so I recorded that in the PR description.
+\- \*\*What I did with it (accepted / changed / rejected):\*\* Followed the fixes and checked results myself with git branch, git status, dir and the browser. One of Claude's suggestions (merging main into my branch) made the style.css problem worse before I restored the file, so I recorded that in the PR description. A second conflict in style.css appeared when merging the PR; I resolved it from the command line by keeping my branch's full stylesheet.
+
+
+
+\## Entry 11
+
+\- \*\*Date:\*\* 2026-11-09 to 2026-11-11
+
+\- \*\*Prompt (summary):\*\* Asked Claude to write the AI Use Note (tool and purpose, prompts, my changes, verification, limitations) and a final README from my prompt log
+
+\- \*\*Key part of AI response:\*\* A full draft of docs/ai-use-note.md and an updated README that links the note and lists the before, after and merged-PR screenshots
+
+\- \*\*What I did with it (accepted / changed / rejected):\*\* Checked every factual statement in the note against what I actually did and confirmed them. Wrote Section 6 using my own answers (see Entry 12). Added a bullet about my own misunderstanding to Section 5.
+
+
+
+\## Entry 12
+
+\- \*\*Date:\*\* 2026-11-11
+
+\- \*\*Prompt (verbatim, start of message):\*\* "ask me questions until you are confident it is my wording"
+
+\- \*\*Key part of AI response:\*\* Claude interviewed me with one question per bullet of Section 6: why 6.1 innings means 6⅓, how the mistake feedback works, and what I would improve next.
+
+\- \*\*What I did with it (accepted / changed / rejected):\*\*
+
+&#x20; - Bullet 1: My answer was that 6.1 IP and 6 1/3 IP both mean six full innings plus one out, which is 19 outs. Claude pointed out that 6.1 is baseball notation, not a true decimal, so I kept my wording with "baseball notation" instead of "decimal." I added my own 2.1 IP example (34.29 versus 30.86).
+
+&#x20; - Bullet 2: My own explanation was wrong. I guessed that 2.00 was inside a tolerance range and 15.00 was outside it. Claude corrected this: the 0.01 tolerance only decides whether an answer is correct, and the orange box appears only when a wrong answer matches what a known mistake would produce. I asked Claude to draft the bullet, so it is Claude's wording. I recorded that in the heading of Section 6 and added my misunderstanding to Section 5.
+
+&#x20; - Bullet 3: Kept my own answer (a game-breakdown stat tracker showing odds by situation). Claude suggested adding why it helps pitchers and that it would need a real data source, and I kept those additions.
 
