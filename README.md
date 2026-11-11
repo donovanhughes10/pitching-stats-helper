@@ -17,7 +17,12 @@
 
 ## Tracked improvement
 
-The "likely mistake" explanation in practice mode was added through Issue #1 and Pull request #2 (branch `feature-mistake-feedback`). Before and after screenshots are in `test-screenshots` (`before-fix.png`, `after-fix.png`).
+The "likely mistake" explanation in practice mode was added through Issue #1 and Pull request #2 (branch `feature-mistake-feedback`, now merged into `main`). Evidence is in `test-screenshots`:
+
+- `before-fix.png`: a wrong answer with no explanation
+- `after-fix.png`: the same kind of wrong answer with the explanation (branch version)
+- `after-fix-final.png`: the final version running from `main`
+- `pr-merged.png`: the merged pull request
 
 ## How to run
 
@@ -37,7 +42,7 @@ Tests were run by hand in Chrome. See `docs/test-log.md` for the full log with i
 - Practice mode only recognizes three specific mistakes. Combined mistakes or other errors get the normal feedback with no explanation.
 - Formulas follow common published definitions. This is a study tool, not official scoring.
 - No live or real player data is used.
-- Tests were manual, not automated.
+- Tests were manual, in one browser (Chrome), not automated.
 
 ## Sources (formula verification)
 
@@ -62,4 +67,8 @@ Date checked: 2026-11-04
 
 ## AI use
 
-AI tool: Claude. See `docs/ai-prompts.md` for the prompt log. A full AI Use Note will be added at `docs/ai-use-note.md`.
+AI tool: Claude (Sonnet 5.5). Claude helped plan the project, write the starter code and the issue's code change, draft the test plan, and troubleshoot Git. I tested every behavior myself, verified the formulas against published sources, and reviewed and edited the change.
+
+- AI Use Note: `docs/ai-use-note.md`
+- Prompt log: `docs/ai-prompts.md`
+- Test log: `docs/test-log.md`
