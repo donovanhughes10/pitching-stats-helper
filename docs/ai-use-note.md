@@ -28,7 +28,7 @@
 
 &#x20; - Walking me through Git and GitHub steps and debugging problems along the way
 
-&#x20; - Drafting the README, prompt log and this note
+&#x20; - Drafting the README, prompt log, this note and the demo script
 
 
 
@@ -56,7 +56,7 @@ These are prompts I typed, with spelling as I typed them.
 
 
 
-Other prompts are summarized in `docs/ai-prompts.md` (Entries 3 to 12).
+Other prompts are summarized in `docs/ai-prompts.md` (Entries 3 to 13).
 
 
 

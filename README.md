@@ -72,3 +72,4 @@ AI tool: Claude (Sonnet 5.5). Claude helped plan the project, write the starter 
 - AI Use Note: `docs/ai-use-note.md`
 - Prompt log: `docs/ai-prompts.md`
 - Test log: `docs/test-log.md`
+- Demo script: `demo/demo-script.md`

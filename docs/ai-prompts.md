@@ -158,3 +158,15 @@ Purpose: Planning, code generation, debugging, test ideas
 
 &#x20; - Bullet 3: Kept my own answer (a game-breakdown stat tracker showing odds by situation). Claude suggested adding why it helps pitchers and that it would need a real data source, and I kept those additions.
 
+
+
+\## Entry 13
+
+\- \*\*Date:\*\* 2026-11-11
+
+\- \*\*Prompt (verbatim, start of message):\*\* "Implemtent these answers and send me the full version of anything that needs to be updated so i am able to paste it" (after answering Claude's interview questions about my demo)
+
+\- \*\*Key part of AI response:\*\* A timed five-minute demo script (demo/demo-script.md) built from my answers, plus a list of likely questions. Claude also flagged four things in my answers: my audience was broader than the one in my README, my description of the AI-assisted change could be misread as a bug, my claim that I compared my app to another baseball stat calculator is not in my logs, and "can't personalize to a player or team" is a missing feature, not a limitation of what I built.
+
+\- \*\*What I did with it (accepted / changed / rejected):\*\* Accepted the script and kept my own wording for the audience, the glossary and the limitation, with light cleanup. Changed the audience line to match the README (mainly pitchers and the people who follow them). Changed the description of the AI-assisted change to say the app showed only the correct answer and did not explain the mistake. Left the outside-calculator comparison out of the script because it is not in my logs; I will only say it if I do the comparison and record it. Used the FIP constant as the main limitation and kept personalization as my next step.
+
