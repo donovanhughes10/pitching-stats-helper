@@ -170,3 +170,17 @@ Purpose: Planning, code generation, debugging, test ideas
 
 \- \*\*What I did with it (accepted / changed / rejected):\*\* Accepted the script and kept my own wording for the audience, the glossary and the limitation, with light cleanup. Changed the audience line to match the README (mainly pitchers and the people who follow them). Changed the description of the AI-assisted change to say the app showed only the correct answer and did not explain the mistake. Left the outside-calculator comparison out of the script because it is not in my logs; I will only say it if I do the comparison and record it. Used the FIP constant as the main limitation and kept personalization as my next step.
 
+
+
+
+
+\## Entry 14
+
+\- \*\*Date:\*\* 2026-11-17
+
+\- \*\*Prompt (verbatim, start of message):\*\* "it does not need to be recorded by voice just written out. ask me the question sin an open ended question format to complete this and get th required information"
+
+\- \*\*Key part of AI response:\*\* Claude asked me open-ended questions about my audience, features, the AI-assisted change, the orange box, evidence and limitation, then wrote a written demo (demo/written-demo.md) from my answers. Claude flagged that my description of the orange box was wrong and that my description of the AI-assisted change could be misread as a bug.
+
+\- \*\*What I did with it (accepted / changed / rejected):\*\* Kept my wording for the audience, the features, the evidence from my fresh-copy test, and the limitation about not saving stats and my coach idea. Accepted Claude's correction that the orange box only appears when a wrong answer exactly matches a known mistake. Changed the AI-assisted change story to say the app showed only the correct answer and did not explain the mistake. Left out any comparison with another calculator because it is not in my logs.
+
